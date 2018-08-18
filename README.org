@@ -1,0 +1,49 @@
+* Power Play
+A space-themed strategy game centered around tactical allocation of
+power (similar to FTL) among each of a small fleet of ships you
+control.
+
+Built using Godot 3.0 and definitely a work in progress.
+* Mechanics
+Most play takes place on a grid with each player (be that two humans
+or a human and an AI) controlling a small fleet of fighters.
+** Power Allocation
+Before each round, each player is allowed to reallocate the power
+distribution of each of their units. Power can be distributed across
+three different systems for each ship:
+*** Engines
+The power given to the engines determines the order in which the ships
+move each round; a ship with more energy invested in their engines
+will always move before a ship with less. In the case of a tie, order
+is random.
+
+Engine power also influences the range the fighter can move on that
+turn.
+*** Weapons
+The power given to weapons helps determine how much damage is dealt
+when attacking another fighter as well as increases the scanning range
+of the fighter (more on scanning below).
+*** Shield
+The power given to shields helps determine how much damage is taken
+when defending from another fighter as well as decreases the
+visibility of the fighter (more on scanning below).
+** Visibility and Scanning
+The game board is in a constant fog of war, with players only knowing
+about the areas they can currently see. Outside that range, the
+enemy's forces may be hiding.
+
+Unlike the binary fog of war in most games, here there is a sort of
+scaling fog of war. Each fighter emits a scan of strength proportional
+to its weapon energy that decreases in strength the farther away from
+the fighter the scan gets. For example, a fighter with scanning
+strength 6 can scan 6 tiles away, with the nearest tiles being a scan
+of strength 6 and the farthest being of strength 1.
+
+To hide, a unit must have a greater blocking energy than the strength
+of the scan. Scan blocking energy is dependent on the shield
+energy. Using the above example, if a unit has a blocking energy of 3,
+it can be 3 squares away from the scanning unit and not be detected.
+
+DISCLAIMER: As this is an initial design doc (and really more just a
+bunch of random ideas), /do not take these numbers seriously/. They
+are for illustration of the idea and not a hard requirement.
