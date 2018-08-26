@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://images/actor.png" type="Texture" id=1]
+[ext_resource path="res://images/obstacle.png" type="Texture" id=2]
+[ext_resource path="res://images/object.png" type="Texture" id=3]
+
+[node name="GridTileSet" type="Node"]
+
+[node name="Actor" type="Sprite" parent="." index="0"]
+
+position = Vector2( 96, 32 )
+texture = ExtResource( 1 )
+
+[node name="Obstacle" type="Sprite" parent="." index="1"]
+
+position = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+
+[node name="Object" type="Sprite" parent="." index="2"]
+
+position = Vector2( 160, 32 )
+texture = ExtResource( 3 )
+
+
