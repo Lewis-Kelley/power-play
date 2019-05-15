@@ -3,12 +3,13 @@
 [ext_resource path="res://Actor.gd" type="Script" id=1]
 [ext_resource path="res://images/character.png" type="Texture" id=2]
 
-[node name="Actor" type="Node2D"]
+[node name="Actor" type="Node2D" index="0"]
 
 position = Vector2( 32, 32 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 type = null
+unit_path = null
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

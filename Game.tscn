@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://GridTileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Grid.gd" type="Script" id=3]
 [ext_resource path="res://Actor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UnitManager.gd" type="Script" id=5]
+[ext_resource path="res://Unit.tscn" type="PackedScene" id=6]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -33,8 +35,23 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Actor" parent="Grid" index="0" instance=ExtResource( 4 )]
+[node name="Actor1" parent="Grid" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 544, 352 )
+type = 0
+unit_path = NodePath("../../UnitManager/Unit1")
+
+[node name="Actor2" parent="Grid" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 544, 288 )
+unit_path = NodePath("../../UnitManager/Unit2")
+
+[node name="UnitManager" type="Node" parent="." index="1"]
+
+script = ExtResource( 5 )
+
+[node name="Unit1" parent="UnitManager" index="0" instance=ExtResource( 6 )]
+
+[node name="Unit2" parent="UnitManager" index="1" instance=ExtResource( 6 )]
 
 

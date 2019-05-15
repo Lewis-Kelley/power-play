@@ -1,11 +1,17 @@
 extends "Entity.gd"
 
+export(NodePath) var unit_path
+
 onready var grid = get_parent()
+var unit
 
 func _ready():
-    pass
+    unit = get_node(unit_path)
 
 func _process(delta):
+    if not unit.active:
+        return
+
     var direction = get_input_direction()
     if direction:
         var destination = grid.maybe_move_entity(self, direction)
