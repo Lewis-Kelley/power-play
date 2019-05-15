@@ -1,9 +1,11 @@
 extends Node
 
 var active = false
+var speed
 
 func _ready():
-    pass
+    randomize()
+    speed = randi() % 100
 
 func activate():
     active = true
