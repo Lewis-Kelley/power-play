@@ -10,6 +10,9 @@ func _ready():
     unit = get_node(unit_path)
     actor = get_node(actor_path)
 
+    unit.connect('unit_activated', self, 'on_unit_activated')
+    unit.connect('unit_deactivated', self, 'on_unit_deactivated')
+
 func _process(delta):
     if not unit.active:
         return
@@ -32,3 +35,9 @@ func get_input_direction():
 
     if direction != Vector2(0, 0):
         return direction
+
+func on_unit_activated():
+    actor.build_fence(unit.get_travel_range())
+
+func on_unit_deactivated():
+    actor.destroy_fence()
